@@ -15,6 +15,7 @@
 		8A7FAD0028BB8D5A009FFD07 /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7FACFF28BB8D5A009FFD07 /* PlacesTableViewController.swift */; };
 		8A7FAD0428BBA3C0009FFD07 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7FAD0328BBA3C0009FFD07 /* PlaceCell.swift */; };
 		8A7FAD0628BBBA71009FFD07 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7FAD0528BBBA71009FFD07 /* Place.swift */; };
+		8A7FAD0F28BBC08C009FFD07 /* NewPlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7FAD0E28BBC08C009FFD07 /* NewPlaceTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		8A7FACFF28BB8D5A009FFD07 /* PlacesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
 		8A7FAD0328BBA3C0009FFD07 /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		8A7FAD0528BBBA71009FFD07 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		8A7FAD0E28BBC08C009FFD07 /* NewPlaceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlaceTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				8A7FACFF28BB8D5A009FFD07 /* PlacesTableViewController.swift */,
+				8A7FAD0E28BBC08C009FFD07 /* NewPlaceTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -99,8 +102,8 @@
 		8A7FAD0B28BBBAAD009FFD07 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				8A7FACF628BB74D6009FFD07 /* LaunchScreen.storyboard */,
 				8A7FACF128BB74D3009FFD07 /* Main.storyboard */,
+				8A7FACF628BB74D6009FFD07 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A7FAD0F28BBC08C009FFD07 /* NewPlaceTableViewController.swift in Sources */,
 				8A7FACEC28BB74D3009FFD07 /* AppDelegate.swift in Sources */,
 				8A7FACEE28BB74D3009FFD07 /* SceneDelegate.swift in Sources */,
 				8A7FAD0028BB8D5A009FFD07 /* PlacesTableViewController.swift in Sources */,
