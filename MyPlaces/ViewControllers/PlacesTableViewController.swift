@@ -9,16 +9,7 @@ import UIKit
 
 class PlacesTableViewController: UITableViewController {
     
-    var places = [
-        "Bar and kitchen IZAKAYA",
-        "Бар «Сплетни»",
-        "Double Grill & Bar",
-        "Винный бар «БИО ШМИО»",
-        "Рюмочная Мелодия",
-        "Бар «Коллектив»",
-        "Винотека Dolce",
-        "«Самоцвет»"
-    ]
+    let places = Place.getPlaces()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +25,10 @@ class PlacesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "place", for: indexPath) as? PlaceCell else { return UITableViewCell() }
         
-        
-        cell.nameLabel.text = places[indexPath.row]
-        cell.placeImage.image = UIImage(named: places[indexPath.row])
+        cell.nameLabel.text = places[indexPath.row].name
+        cell.locationLabel.text = places[indexPath.row].location
+        cell.typeLabel.text = places[indexPath.row].type
+        cell.placeImage.image = UIImage(named: places[indexPath.row].image)
         cell.placeImage.layer.cornerRadius = cell.placeImage.frame.size.height / 2
         
         return cell

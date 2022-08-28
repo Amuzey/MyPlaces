@@ -14,6 +14,7 @@
 		8A7FACF828BB74D6009FFD07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A7FACF628BB74D6009FFD07 /* LaunchScreen.storyboard */; };
 		8A7FAD0028BB8D5A009FFD07 /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7FACFF28BB8D5A009FFD07 /* PlacesTableViewController.swift */; };
 		8A7FAD0428BBA3C0009FFD07 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7FAD0328BBA3C0009FFD07 /* PlaceCell.swift */; };
+		8A7FAD0628BBBA71009FFD07 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7FAD0528BBBA71009FFD07 /* Place.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		8A7FACF928BB74D6009FFD07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A7FACFF28BB8D5A009FFD07 /* PlacesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
 		8A7FAD0328BBA3C0009FFD07 /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
+		8A7FAD0528BBBA71009FFD07 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +60,65 @@
 		8A7FACEA28BB74D3009FFD07 /* MyPlaces */ = {
 			isa = PBXGroup;
 			children = (
-				8A7FACEB28BB74D3009FFD07 /* AppDelegate.swift */,
-				8A7FACED28BB74D3009FFD07 /* SceneDelegate.swift */,
-				8A7FAD0328BBA3C0009FFD07 /* PlaceCell.swift */,
-				8A7FACFF28BB8D5A009FFD07 /* PlacesTableViewController.swift */,
-				8A7FACF128BB74D3009FFD07 /* Main.storyboard */,
-				8A7FACF428BB74D6009FFD07 /* Assets.xcassets */,
-				8A7FACF628BB74D6009FFD07 /* LaunchScreen.storyboard */,
-				8A7FACF928BB74D6009FFD07 /* Info.plist */,
+				8A7FAD0D28BBBAEA009FFD07 /* Views */,
+				8A7FAD0928BBBA84009FFD07 /* ViewControllers */,
+				8A7FAD0728BBBA74009FFD07 /* Models */,
+				8A7FAD0B28BBBAAD009FFD07 /* Storyboards */,
+				8A7FAD0C28BBBABB009FFD07 /* Resources */,
+				8A7FAD0A28BBBA90009FFD07 /* App */,
 			);
 			path = MyPlaces;
+			sourceTree = "<group>";
+		};
+		8A7FAD0728BBBA74009FFD07 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8A7FAD0528BBBA71009FFD07 /* Place.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8A7FAD0928BBBA84009FFD07 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8A7FACFF28BB8D5A009FFD07 /* PlacesTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8A7FAD0A28BBBA90009FFD07 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8A7FACEB28BB74D3009FFD07 /* AppDelegate.swift */,
+				8A7FACED28BB74D3009FFD07 /* SceneDelegate.swift */,
+				8A7FACF928BB74D6009FFD07 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8A7FAD0B28BBBAAD009FFD07 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8A7FACF628BB74D6009FFD07 /* LaunchScreen.storyboard */,
+				8A7FACF128BB74D3009FFD07 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		8A7FAD0C28BBBABB009FFD07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8A7FACF428BB74D6009FFD07 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8A7FAD0D28BBBAEA009FFD07 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8A7FAD0328BBA3C0009FFD07 /* PlaceCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +196,7 @@
 				8A7FACEE28BB74D3009FFD07 /* SceneDelegate.swift in Sources */,
 				8A7FAD0028BB8D5A009FFD07 /* PlacesTableViewController.swift in Sources */,
 				8A7FAD0428BBA3C0009FFD07 /* PlaceCell.swift in Sources */,
+				8A7FAD0628BBBA71009FFD07 /* Place.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +345,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5Z3HCFMYW5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyPlaces/Info.plist;
+				INFOPLIST_FILE = MyPlaces/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -321,7 +373,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5Z3HCFMYW5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyPlaces/Info.plist;
+				INFOPLIST_FILE = MyPlaces/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
