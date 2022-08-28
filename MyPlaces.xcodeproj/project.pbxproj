@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		8A7FACEC28BB74D3009FFD07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7FACEB28BB74D3009FFD07 /* AppDelegate.swift */; };
 		8A7FACEE28BB74D3009FFD07 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7FACED28BB74D3009FFD07 /* SceneDelegate.swift */; };
-		8A7FACF028BB74D3009FFD07 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7FACEF28BB74D3009FFD07 /* ViewController.swift */; };
 		8A7FACF328BB74D3009FFD07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A7FACF128BB74D3009FFD07 /* Main.storyboard */; };
 		8A7FACF528BB74D6009FFD07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A7FACF428BB74D6009FFD07 /* Assets.xcassets */; };
 		8A7FACF828BB74D6009FFD07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A7FACF628BB74D6009FFD07 /* LaunchScreen.storyboard */; };
+		8A7FAD0028BB8D5A009FFD07 /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7FACFF28BB8D5A009FFD07 /* PlacesTableViewController.swift */; };
+		8A7FAD0428BBA3C0009FFD07 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7FAD0328BBA3C0009FFD07 /* PlaceCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8A7FACE828BB74D3009FFD07 /* MyPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A7FACEB28BB74D3009FFD07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A7FACED28BB74D3009FFD07 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8A7FACEF28BB74D3009FFD07 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8A7FACF228BB74D3009FFD07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8A7FACF428BB74D6009FFD07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A7FACF728BB74D6009FFD07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A7FACF928BB74D6009FFD07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A7FACFF28BB8D5A009FFD07 /* PlacesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
+		8A7FAD0328BBA3C0009FFD07 /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +60,8 @@
 			children = (
 				8A7FACEB28BB74D3009FFD07 /* AppDelegate.swift */,
 				8A7FACED28BB74D3009FFD07 /* SceneDelegate.swift */,
-				8A7FACEF28BB74D3009FFD07 /* ViewController.swift */,
+				8A7FAD0328BBA3C0009FFD07 /* PlaceCell.swift */,
+				8A7FACFF28BB8D5A009FFD07 /* PlacesTableViewController.swift */,
 				8A7FACF128BB74D3009FFD07 /* Main.storyboard */,
 				8A7FACF428BB74D6009FFD07 /* Assets.xcassets */,
 				8A7FACF628BB74D6009FFD07 /* LaunchScreen.storyboard */,
@@ -138,9 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A7FACF028BB74D3009FFD07 /* ViewController.swift in Sources */,
 				8A7FACEC28BB74D3009FFD07 /* AppDelegate.swift in Sources */,
 				8A7FACEE28BB74D3009FFD07 /* SceneDelegate.swift in Sources */,
+				8A7FAD0028BB8D5A009FFD07 /* PlacesTableViewController.swift in Sources */,
+				8A7FAD0428BBA3C0009FFD07 /* PlaceCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
