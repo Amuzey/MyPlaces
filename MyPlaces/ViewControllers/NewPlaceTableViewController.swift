@@ -16,15 +16,22 @@ class NewPlaceTableViewController: UITableViewController {
     @IBOutlet var typeTextField: UITextField!
     @IBOutlet var saveButton: UIBarButtonItem!
     
-    let camera = #imageLiteral(resourceName: "camera")
-    let library = #imageLiteral(resourceName: "photo")
+    private let camera = #imageLiteral(resourceName: "camera")
+    private let library = #imageLiteral(resourceName: "photo")
+    
+    var newPlace: Place!
+    var imageIsChanged = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Add new place"
         saveButton.isEnabled = false
-        nameTextField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        nameTextField.addTarget(
+            self,
+            action: #selector(textFieldChanged),
+            for: .editingChanged
+        )
     }
     
     
@@ -37,7 +44,7 @@ class NewPlaceTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             
-        
+            
             showAlert(with: "Privet")
         } else {
             view.endEditing(true)
@@ -59,24 +66,47 @@ extension NewPlaceTableViewController: UITextFieldDelegate {
             saveButton.isEnabled = false
         }
     }
+    
+    func saveNewPlace() {
+        
+        var image: UIImage?
+        
+        if imageIsChanged {
+            image = placeImageView.image
+        } else {
+            image = #imageLiteral(resourceName: "imagePlaceholder")
+        }
+        
+        newPlace = Place(barNameimage: nil,
+                         name: nameTextField.text!,
+                         location: locationRextField.text,
+                         type: typeTextField.text,
+                         image: image)
+    }
 }
 
 
 //MARK: - Alert View Controlle
 extension NewPlaceTableViewController {
     private func showAlert(with title: String) {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(
+            title: nil,
+            message: nil,
+            preferredStyle: .actionSheet
+        )
         let photoAction = UIAlertAction(title: "Camera", style: .default) { _ in
             self.chooseImagePicker(source: .camera)
         }
         photoAction.setValue(camera, forKey: "image")
-        photoAction.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
-       
+        photoAction.setValue(CATextLayerAlignmentMode.left,
+                             forKey: "titleTextAlignment")
+        
         let libraryAction = UIAlertAction(title: "Photo", style: .default) { _ in
             self.chooseImagePicker(source: .photoLibrary)
         }
         libraryAction.setValue(library, forKey: "image")
-        libraryAction.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+        libraryAction.setValue(CATextLayerAlignmentMode.left,
+                               forKey: "titleTextAlignment")
         
         let canсelAction = UIAlertAction(title: "Canсel", style: .cancel)
         
@@ -91,7 +121,7 @@ extension NewPlaceTableViewController {
 //MARK: - Work with image
 extension NewPlaceTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     private func chooseImagePicker(source: UIImagePickerController.SourceType) {
-            
+        
         if UIImagePickerController.isSourceTypeAvailable(source) {
             let imagePicker = UIImagePickerController()
             
@@ -104,10 +134,13 @@ extension NewPlaceTableViewController: UIImagePickerControllerDelegate, UINaviga
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-       
+        
         placeImageView.image = info[.editedImage] as? UIImage
         placeImageView.contentMode = .scaleAspectFill
         placeImageView.clipsToBounds = true
+        
+        imageIsChanged = true
+        
         dismiss(animated: true)
     }
 }
