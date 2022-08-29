@@ -15,6 +15,9 @@ class NewPlaceTableViewController: UITableViewController {
     @IBOutlet var locationRextField: UITextField!
     @IBOutlet var typeTextField: UITextField!
     
+    let camera = #imageLiteral(resourceName: "camera")
+    let library = #imageLiteral(resourceName: "photo")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +34,8 @@ class NewPlaceTableViewController: UITableViewController {
     //MARK: - Table View Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
+            
+        
             showAlert(with: "Privet")
         } else {
             view.endEditing(true)
@@ -54,9 +59,15 @@ extension NewPlaceTableViewController {
         let photoAction = UIAlertAction(title: "Camera", style: .default) { _ in
             self.chooseImagePicker(source: .camera)
         }
+        photoAction.setValue(camera, forKey: "image")
+        photoAction.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+       
         let libraryAction = UIAlertAction(title: "Photo", style: .default) { _ in
             self.chooseImagePicker(source: .photoLibrary)
         }
+        libraryAction.setValue(library, forKey: "image")
+        libraryAction.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+        
         let canсelAction = UIAlertAction(title: "Canсel", style: .cancel)
         
         alert.addAction(photoAction)
