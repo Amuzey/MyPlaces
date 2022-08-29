@@ -245,10 +245,11 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="tBm-ZN-dhu"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="locationRextField" destination="irJ-p0-EnR" id="T20-js-2B1"/>
-                        <outlet property="nameTextField" destination="cTU-YT-VWk" id="39d-bb-xff"/>
+                        <outlet property="locationRextField" destination="irJ-p0-EnR" id="E5S-Qi-M9L"/>
+                        <outlet property="nameTextField" destination="cTU-YT-VWk" id="QNz-62-lge"/>
                         <outlet property="placeImageView" destination="l3c-08-Hwi" id="Jxt-3p-OQ7"/>
-                        <outlet property="typeTextField" destination="IKc-VC-3YG" id="4Ll-b2-XIQ"/>
+                        <outlet property="saveButton" destination="tBm-ZN-dhu" id="u57-x5-071"/>
+                        <outlet property="typeTextField" destination="IKc-VC-3YG" id="hz8-9x-nlE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HcP-Vz-0bN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -14,6 +14,7 @@ class NewPlaceTableViewController: UITableViewController {
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var locationRextField: UITextField!
     @IBOutlet var typeTextField: UITextField!
+    @IBOutlet var saveButton: UIBarButtonItem!
     
     let camera = #imageLiteral(resourceName: "camera")
     let library = #imageLiteral(resourceName: "photo")
@@ -21,8 +22,9 @@ class NewPlaceTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
         title = "Add new place"
+        saveButton.isEnabled = false
+        nameTextField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
     }
     
     
@@ -48,6 +50,14 @@ extension NewPlaceTableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    @objc private func textFieldChanged() {
+        if nameTextField.text?.isEmpty == false {
+            saveButton.isEnabled = true
+        } else {
+            saveButton.isEnabled = false
+        }
     }
 }
 
