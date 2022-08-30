@@ -6,19 +6,22 @@
 //
 
 import UIKit
+import RealmSwift
 
 class PlacesTableViewController: UITableViewController {
     
-    var places = Place.getPlaces()
+    var places: Results<Place>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "My places"
+        
+        places = realm.objects(Place.self)
     }
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        places.count
+        places.isEmpty ? 0 : places.count
     }
     
     
@@ -29,13 +32,10 @@ class PlacesTableViewController: UITableViewController {
         cell.nameLabel.text = place.name
         cell.locationLabel.text = place.location
         cell.typeLabel.text = place.type
+        cell.placeImage.image = UIImage(data: place.imageData!)
         
-        if place.image == nil {
-            cell.placeImage.image = UIImage(named: place.barNameimage!)
-        } else {
-            cell.placeImage.image = place.image
-        }
-            cell.placeImage.layer.cornerRadius = cell.placeImage.frame.size.height / 2
+        cell.placeImage.layer.cornerRadius = cell.placeImage.frame.size.height / 2
+        cell.placeImage.clipsToBounds = true
         
         return cell
     }
@@ -45,7 +45,7 @@ class PlacesTableViewController: UITableViewController {
         guard let newPlaceVC = segue.source as? NewPlaceTableViewController else { return }
         newPlaceVC.saveNewPlace()
         
-        places.append(newPlaceVC.newPlace)
+        //        places.append(newPlaceVC.newPlace)
         tableView.reloadData()
     }
 }

@@ -19,7 +19,6 @@ class NewPlaceTableViewController: UITableViewController {
     private let camera = #imageLiteral(resourceName: "camera")
     private let library = #imageLiteral(resourceName: "photo")
     
-    var newPlace: Place!
     var imageIsChanged = false
     
     override func viewDidLoad() {
@@ -33,8 +32,6 @@ class NewPlaceTableViewController: UITableViewController {
             for: .editingChanged
         )
     }
-    
-    
     
     @IBAction func cancelButton(_ sender: Any) {
         dismiss(animated: true)
@@ -77,11 +74,16 @@ extension NewPlaceTableViewController: UITextFieldDelegate {
             image = #imageLiteral(resourceName: "imagePlaceholder")
         }
         
-        newPlace = Place(barNameimage: nil,
-                         name: nameTextField.text!,
-                         location: locationRextField.text,
-                         type: typeTextField.text,
-                         image: image)
+        let imageData = image?.pngData()
+        
+        let newPlace = Place(
+            name: nameTextField.text!,
+            location: locationRextField.text,
+            type: typeTextField.text,
+            imageData: imageData
+        )
+        
+        StorageManager.saveObject(newPlace)
     }
 }
 
