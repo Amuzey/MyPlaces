@@ -40,6 +40,16 @@ class PlacesTableViewController: UITableViewController {
         return cell
     }
     
+    //MARK: - Table View Delegate
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
+            StorageManager.delete(self.places[indexPath.row])
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
     @IBAction func saveAction(segue: UIStoryboardSegue) {
         
         guard let newPlaceVC = segue.source as? NewPlaceTableViewController else { return }

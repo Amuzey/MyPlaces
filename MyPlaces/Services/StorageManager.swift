@@ -17,4 +17,24 @@ class StorageManager {
         realm.add(place)
         }
     }
+    
+    // MARK: - CRUD
+    static func create() {
+        
+    }
+    
+    static func fetchData() {
+        
+    }
+    
+    static func update() {
+        
+    }
+    
+    static func delete(_ place: Place) {
+        
+        try? realm.write {
+            realm.delete(place)
+        }
+    }
 }
