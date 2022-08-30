@@ -27,8 +27,8 @@ class StorageManager {
         
     }
     
-    static func update() {
-        
+    static func update(_ place: Place) {
+       
     }
     
     static func delete(_ place: Place) {

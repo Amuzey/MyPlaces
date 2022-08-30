@@ -19,18 +19,19 @@ class NewPlaceTableViewController: UITableViewController {
     private let camera = #imageLiteral(resourceName: "camera")
     private let library = #imageLiteral(resourceName: "photo")
     
+    var curentPlace: Place?
     var imageIsChanged = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Add new place"
         saveButton.isEnabled = false
         nameTextField.addTarget(
             self,
             action: #selector(textFieldChanged),
             for: .editingChanged
         )
+        setupEditScreen()
     }
     
     @IBAction func cancelButton(_ sender: Any) {
@@ -40,12 +41,33 @@ class NewPlaceTableViewController: UITableViewController {
     //MARK: - Table View Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            
-            
-            showAlert(with: "Privet")
+            showAlert()
         } else {
             view.endEditing(true)
         }
+    }
+    
+    //MARK: - Private Methods
+    private func setupEditScreen() {
+        
+        if curentPlace != nil {
+            
+            setupNavigationBar()
+            imageIsChanged = true
+            guard let data = curentPlace?.imageData, let image = UIImage(data: data) else { return }
+            
+            placeImageView.image = image
+            placeImageView.contentMode = .scaleAspectFill
+            nameTextField.text = curentPlace?.name
+            locationRextField.text = curentPlace?.location
+            typeTextField.text = curentPlace?.type
+        }
+    }
+    private func setupNavigationBar() {
+        
+        title = curentPlace?.name
+        navigationItem.leftBarButtonItem = nil
+        saveButton.isEnabled = true
     }
 }
 
@@ -64,7 +86,7 @@ extension NewPlaceTableViewController: UITextFieldDelegate {
         }
     }
     
-    func saveNewPlace() {
+    func savePlace() {
         
         var image: UIImage?
         
@@ -83,14 +105,23 @@ extension NewPlaceTableViewController: UITextFieldDelegate {
             imageData: imageData
         )
         
-        StorageManager.saveObject(newPlace)
+        if curentPlace != nil {
+            try! realm.write {
+                curentPlace?.name = newPlace.name
+                curentPlace?.location = newPlace.location
+                curentPlace?.type = newPlace.type
+                curentPlace?.imageData = newPlace.imageData
+            }
+        } else {
+            StorageManager.saveObject(newPlace)
+        }
     }
 }
 
 
 //MARK: - Alert View Controlle
 extension NewPlaceTableViewController {
-    private func showAlert(with title: String) {
+    private func showAlert() {
         let alert = UIAlertController(
             title: nil,
             message: nil,

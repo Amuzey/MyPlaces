@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Places Table View Controller-->
+        <!--My places-->
         <scene sceneID="Lvz-TS-dJm">
             <objects>
                 <tableViewController id="6r3-cz-wQ0" customClass="PlacesTableViewController" customModule="MyPlaces" customModuleProvider="target" sceneMemberID="viewController">
@@ -68,6 +68,7 @@
                                     <outlet property="nameLabel" destination="iVp-9f-fGq" id="q7v-Kp-YYO"/>
                                     <outlet property="placeImage" destination="tep-Ne-5iG" id="kaH-Me-7b6"/>
                                     <outlet property="typeLabel" destination="1HC-wJ-yLJ" id="Fba-0S-1df"/>
+                                    <segue destination="b8X-wC-mqG" kind="show" identifier="showDetail" id="xcN-9N-qF8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -76,7 +77,7 @@
                             <outlet property="delegate" destination="6r3-cz-wQ0" id="TCP-WF-EnJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="30z-Jq-YhX">
+                    <navigationItem key="navigationItem" title="My places" largeTitleDisplayMode="never" id="30z-Jq-YhX">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="j1p-kk-slc">
                             <connections>
                                 <segue destination="rWZ-6e-iij" kind="presentation" modalTransitionStyle="crossDissolve" id="xWi-ss-Lpp"/>
@@ -86,9 +87,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nCB-Aw-iQN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="214" y="47"/>
+            <point key="canvasLocation" x="217" y="47"/>
         </scene>
-        <!--Root View Controller-->
+        <!--New place-->
         <scene sceneID="VMZ-xH-yjK">
             <objects>
                 <tableViewController id="b8X-wC-mqG" customClass="NewPlaceTableViewController" customModule="MyPlaces" customModuleProvider="target" sceneMemberID="viewController">
@@ -236,7 +237,7 @@
                             <outlet property="delegate" destination="b8X-wC-mqG" id="uTN-ez-9Tt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="rTg-H6-5Tw">
+                    <navigationItem key="navigationItem" title="New place" largeTitleDisplayMode="always" id="rTg-H6-5Tw">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="C2W-zR-fbv">
                             <connections>
                                 <action selector="cancelButton:" destination="b8X-wC-mqG" id="2tZ-CY-lmm"/>
@@ -244,7 +245,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="tBm-ZN-dhu">
                             <connections>
-                                <segue destination="3iV-VV-FkI" kind="unwind" unwindAction="saveActionWithSegue:" id="9ts-94-W0E"/>
+                                <segue destination="3iV-VV-FkI" kind="unwind" unwindAction="unwindSegue:" id="bhc-PO-Uv7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -259,7 +260,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HcP-Vz-0bN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="3iV-VV-FkI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1697" y="47"/>
+            <point key="canvasLocation" x="988" y="47"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KHb-qY-aef">
@@ -275,14 +276,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ohU-uI-3ly" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="985" y="47"/>
+            <point key="canvasLocation" x="988" y="-674"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vfg-wB-Ar1">
             <objects>
                 <navigationController id="8vL-ao-zZU" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Dq-0S-uMI">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="9Dq-0S-uMI">
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -294,6 +295,9 @@
             <point key="canvasLocation" x="-523" y="47"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="0VR-hs-1at"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="addPhoto" width="860" height="842"/>
         <systemColor name="systemBackgroundColor">

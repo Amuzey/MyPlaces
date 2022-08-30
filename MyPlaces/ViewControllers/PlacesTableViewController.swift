@@ -14,7 +14,6 @@ class PlacesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "My places"
         
         places = realm.objects(Place.self)
     }
@@ -50,12 +49,20 @@ class PlacesTableViewController: UITableViewController {
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
-    @IBAction func saveAction(segue: UIStoryboardSegue) {
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            guard let newPlaceVC = segue.destination as? NewPlaceTableViewController else { return }
+            let place = places[indexPath.row]
+            newPlaceVC.curentPlace = place
+        }
+    }
+    
+    @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
         
         guard let newPlaceVC = segue.source as? NewPlaceTableViewController else { return }
-        newPlaceVC.saveNewPlace()
-        
-        //        places.append(newPlaceVC.newPlace)
+        newPlaceVC.savePlace()
         tableView.reloadData()
     }
 }
