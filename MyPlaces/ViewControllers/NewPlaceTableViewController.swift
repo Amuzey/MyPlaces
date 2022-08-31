@@ -21,8 +21,8 @@ class NewPlaceTableViewController: UITableViewController {
     var imageIsChanged = false
     
     // MARK: - Private Properties
-    private let camera = #imageLiteral(resourceName: "camera")
-    private let library = #imageLiteral(resourceName: "photo")
+    private let camera = UIImage(systemName: "camera")
+    private let library = UIImage(systemName: "photo")
     
     // MARK: - Life Cycles Methods
     override func viewDidLoad() {
