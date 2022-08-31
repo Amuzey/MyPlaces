@@ -14,25 +14,47 @@ class PlacesTableViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet var tableView: UITableView!
     @IBOutlet var sotringSegmentedControl: UISegmentedControl!
     
-    // MARK: - Public Properties
-    var places: Results<Place>!
-    
     // MARK: - Private Properties
+    private let searchController = UISearchController(searchResultsController: nil)
+    private var filteredPlaces: Results<Place>!
+    private var places: Results<Place>!
     private var ascendingSorting = true
+    private var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else { return false }
+        return text.isEmpty
+    }
+    private var isFiltering: Bool {
+        searchController.isActive && !searchBarIsEmpty
+    }
     
     // MARK: - Life Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
         places = realm.objects(Place.self)
+        
+        //Setup the Search Controller
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
+    
+    
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "showDetail" {
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             guard let newPlaceVC = segue.destination as? NewPlaceTableViewController else { return }
-            let place = places[indexPath.row]
+            let place: Place
+            if isFiltering {
+                place = filteredPlaces[indexPath.row]
+            } else {
+                place = places[indexPath.row]
+            }
             newPlaceVC.curentPlace = place
         }
     }
@@ -40,12 +62,23 @@ class PlacesTableViewController: UIViewController, UITableViewDataSource, UITabl
     
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        places.isEmpty ? 0 : places.count
+        if isFiltering {
+           return filteredPlaces.count
+        } else {
+           return places.isEmpty ? 0 : places.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "place", for: indexPath) as? PlaceCell else { return UITableViewCell() }
-        let place = places[indexPath.row]
+        
+        var place = Place()
+        
+        if isFiltering {
+            place = filteredPlaces[indexPath.row]
+        } else {
+            place = places[indexPath.row]
+        }
         
         cell.nameLabel.text = place.name
         cell.locationLabel.text = place.location
@@ -98,4 +131,18 @@ class PlacesTableViewController: UIViewController, UITableViewDataSource, UITabl
     }
 }
 
+// MARK: - UISearch Result Updating
+extension PlacesTableViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearhText(searchController.searchBar.text!)
+    }
+    
+    private func filterContentForSearhText(_ searchText: String) {
+        
+        filteredPlaces = places.filter("name CONTAINS[c] %@ OR location CONTAINS[c] %@ OR type CONTAINS[c] %@", searchText, searchText, searchText)
+        tableView.reloadData()
+    }
+    
+}
 
