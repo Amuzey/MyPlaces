@@ -9,19 +9,22 @@ import UIKit
 
 class NewPlaceTableViewController: UITableViewController {
     
+    // MARK: - IBOutlets
     @IBOutlet var placeImageView: UIImageView!
-    
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var locationRextField: UITextField!
     @IBOutlet var typeTextField: UITextField!
     @IBOutlet var saveButton: UIBarButtonItem!
     
-    private let camera = #imageLiteral(resourceName: "camera")
-    private let library = #imageLiteral(resourceName: "photo")
-    
+    // MARK: - Public properties
     var curentPlace: Place?
     var imageIsChanged = false
     
+    // MARK: - Private Properties
+    private let camera = #imageLiteral(resourceName: "camera")
+    private let library = #imageLiteral(resourceName: "photo")
+    
+    // MARK: - Life Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,11 +37,7 @@ class NewPlaceTableViewController: UITableViewController {
         setupEditScreen()
     }
     
-    @IBAction func cancelButton(_ sender: Any) {
-        dismiss(animated: true)
-    }
-    
-    //MARK: - Table View Delegate
+    // MARK: - Table View Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             showAlert()
@@ -47,7 +46,12 @@ class NewPlaceTableViewController: UITableViewController {
         }
     }
     
-    //MARK: - Private Methods
+    // MARK: - IBActions
+    @IBAction func cancelButton(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
+    // MARK: - Private Methods
     private func setupEditScreen() {
         
         if curentPlace != nil {
@@ -63,6 +67,7 @@ class NewPlaceTableViewController: UITableViewController {
             typeTextField.text = curentPlace?.type
         }
     }
+    
     private func setupNavigationBar() {
         
         title = curentPlace?.name
@@ -71,7 +76,7 @@ class NewPlaceTableViewController: UITableViewController {
     }
 }
 
-//MARK: - Text Field Delegate
+// MARK: - Text Field Delegate
 extension NewPlaceTableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -118,8 +123,7 @@ extension NewPlaceTableViewController: UITextFieldDelegate {
     }
 }
 
-
-//MARK: - Alert View Controlle
+// MARK: - Alert View Controlle
 extension NewPlaceTableViewController {
     private func showAlert() {
         let alert = UIAlertController(
@@ -151,7 +155,7 @@ extension NewPlaceTableViewController {
     }
 }
 
-//MARK: - Work with image
+// MARK: - Work with image
 extension NewPlaceTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     private func chooseImagePicker(source: UIImagePickerController.SourceType) {
         
