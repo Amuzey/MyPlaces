@@ -14,8 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        let shemaVersion: UInt64 = 3
         let config = Realm.Configuration(
-            schemaVersion: 2)
+            schemaVersion: shemaVersion)
         // Use this configuration when opening realms
         Realm.Configuration.defaultConfiguration = config
         return true

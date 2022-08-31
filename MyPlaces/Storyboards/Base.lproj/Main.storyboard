@@ -190,6 +190,7 @@
                         <outlet property="locationRextField" destination="irJ-p0-EnR" id="E5S-Qi-M9L"/>
                         <outlet property="nameTextField" destination="cTU-YT-VWk" id="QNz-62-lge"/>
                         <outlet property="placeImageView" destination="l3c-08-Hwi" id="Jxt-3p-OQ7"/>
+                        <outlet property="ratingControl" destination="Che-hM-8j9" id="6BT-Ee-GtE"/>
                         <outlet property="saveButton" destination="tBm-ZN-dhu" id="u57-x5-071"/>
                         <outlet property="typeTextField" destination="IKc-VC-3YG" id="hz8-9x-nlE"/>
                     </connections>

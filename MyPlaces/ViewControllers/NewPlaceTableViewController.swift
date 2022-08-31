@@ -15,9 +15,10 @@ class NewPlaceTableViewController: UITableViewController {
     @IBOutlet var locationRextField: UITextField!
     @IBOutlet var typeTextField: UITextField!
     @IBOutlet var saveButton: UIBarButtonItem!
+    @IBOutlet var ratingControl: RatingControl!
     
     // MARK: - Public properties
-    var curentPlace: Place?
+    var curentPlace: Place!
     var imageIsChanged = false
     
     // MARK: - Private Properties
@@ -65,6 +66,7 @@ class NewPlaceTableViewController: UITableViewController {
             nameTextField.text = curentPlace?.name
             locationRextField.text = curentPlace?.location
             typeTextField.text = curentPlace?.type
+            ratingControl.rating = Int(curentPlace.rating)
         }
     }
     
@@ -107,7 +109,8 @@ extension NewPlaceTableViewController: UITextFieldDelegate {
             name: nameTextField.text!,
             location: locationRextField.text,
             type: typeTextField.text,
-            imageData: imageData
+            imageData: imageData,
+            rating: Double(ratingControl.rating)
         )
         
         if curentPlace != nil {
@@ -116,6 +119,7 @@ extension NewPlaceTableViewController: UITextFieldDelegate {
                 curentPlace?.location = newPlace.location
                 curentPlace?.type = newPlace.type
                 curentPlace?.imageData = newPlace.imageData
+                curentPlace?.rating = newPlace.rating
             }
         } else {
             StorageManager.saveObject(newPlace)
