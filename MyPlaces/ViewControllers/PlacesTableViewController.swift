@@ -49,12 +49,8 @@ class PlacesTableViewController: UIViewController, UITableViewDataSource, UITabl
         if segue.identifier == "showDetail" {
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             guard let newPlaceVC = segue.destination as? NewPlaceTableViewController else { return }
-            let place: Place
-            if isFiltering {
-                place = filteredPlaces[indexPath.row]
-            } else {
-                place = places[indexPath.row]
-            }
+            
+            let place = isFiltering ? filteredPlaces[indexPath.row] : places[indexPath.row]
             newPlaceVC.curentPlace = place
         }
     }
@@ -65,28 +61,20 @@ class PlacesTableViewController: UIViewController, UITableViewDataSource, UITabl
         if isFiltering {
            return filteredPlaces.count
         } else {
-           return places.isEmpty ? 0 : places.count
+           return places.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "place", for: indexPath) as? PlaceCell else { return UITableViewCell() }
         
-        var place = Place()
-        
-        if isFiltering {
-            place = filteredPlaces[indexPath.row]
-        } else {
-            place = places[indexPath.row]
-        }
+        let place = isFiltering ? filteredPlaces[indexPath.row] : places[indexPath.row]
         
         cell.nameLabel.text = place.name
         cell.locationLabel.text = place.location
         cell.typeLabel.text = place.type
         cell.placeImage.image = UIImage(data: place.imageData!)
-        
-        cell.placeImage.layer.cornerRadius = cell.placeImage.frame.size.height / 2
-        cell.placeImage.clipsToBounds = true
+
         
         return cell
     }
@@ -99,6 +87,9 @@ class PlacesTableViewController: UIViewController, UITableViewDataSource, UITabl
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     

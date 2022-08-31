@@ -10,6 +10,7 @@
 		8A1D3F1D28BE1E88009FC23F /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D3F1C28BE1E88009FC23F /* StorageManager.swift */; };
 		8A1D3F2028BE1F42009FC23F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 8A1D3F1F28BE1F42009FC23F /* Realm */; };
 		8A1D3F2228BE1F42009FC23F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8A1D3F2128BE1F42009FC23F /* RealmSwift */; };
+		8A1D3F2428BFA2D1009FC23F /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D3F2328BFA2D1009FC23F /* RatingControl.swift */; };
 		8A7FACEC28BB74D3009FFD07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7FACEB28BB74D3009FFD07 /* AppDelegate.swift */; };
 		8A7FACEE28BB74D3009FFD07 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7FACED28BB74D3009FFD07 /* SceneDelegate.swift */; };
 		8A7FACF328BB74D3009FFD07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A7FACF128BB74D3009FFD07 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		8A1D3F1C28BE1E88009FC23F /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		8A1D3F2328BFA2D1009FC23F /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		8A7FACE828BB74D3009FFD07 /* MyPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A7FACEB28BB74D3009FFD07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A7FACED28BB74D3009FFD07 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				8A7FAD0328BBA3C0009FFD07 /* PlaceCell.swift */,
+				8A1D3F2328BFA2D1009FC23F /* RatingControl.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				8A7FACEC28BB74D3009FFD07 /* AppDelegate.swift in Sources */,
 				8A7FACEE28BB74D3009FFD07 /* SceneDelegate.swift in Sources */,
 				8A1D3F1D28BE1E88009FC23F /* StorageManager.swift in Sources */,
+				8A1D3F2428BFA2D1009FC23F /* RatingControl.swift in Sources */,
 				8A7FAD0028BB8D5A009FFD07 /* PlacesTableViewController.swift in Sources */,
 				8A7FAD0428BBA3C0009FFD07 /* PlaceCell.swift in Sources */,
 				8A7FAD0628BBBA71009FFD07 /* Place.swift in Sources */,
