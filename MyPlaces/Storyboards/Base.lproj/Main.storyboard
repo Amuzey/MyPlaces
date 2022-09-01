@@ -227,45 +227,36 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="bTW-8k-tA7">
-                                                    <rect key="frame" x="90" y="10" width="230" height="65"/>
+                                                    <rect key="frame" x="90" y="10" width="322" height="65"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CTF-6w-gCn">
-                                                            <rect key="frame" x="0.0" y="0.0" width="230" height="20.333333333333332"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="322" height="20.333333333333332"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cH4-ve-fZN">
-                                                            <rect key="frame" x="0.0" y="27.333333333333336" width="230" height="17"/>
+                                                            <rect key="frame" x="0.0" y="27.333333333333336" width="322" height="17"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiO-20-9G7">
-                                                            <rect key="frame" x="0.0" y="51.333333333333336" width="230" height="13.666666666666664"/>
+                                                            <rect key="frame" x="0.0" y="51.333333333333336" width="322" height="13.666666666666664"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="cE8-3J-0sq" customClass="RatingControl" customModule="MyPlaces" customModuleProvider="target">
-                                                    <rect key="frame" x="328" y="34.666666666666664" width="80" height="16"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="16" id="ZGj-IC-xd1"/>
-                                                        <constraint firstAttribute="width" constant="80" id="dSK-xY-ZQf"/>
-                                                    </constraints>
-                                                </stackView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="vdp-rG-nF0" firstAttribute="leading" secondItem="QiE-Ny-mfD" secondAttribute="leading" constant="15" id="3Gb-vp-Per"/>
-                                                <constraint firstItem="cE8-3J-0sq" firstAttribute="centerY" secondItem="QiE-Ny-mfD" secondAttribute="centerY" id="3rs-te-Lxa"/>
-                                                <constraint firstItem="cE8-3J-0sq" firstAttribute="leading" secondItem="bTW-8k-tA7" secondAttribute="trailing" constant="8" id="5sy-nU-wyC"/>
                                                 <constraint firstItem="vdp-rG-nF0" firstAttribute="top" secondItem="QiE-Ny-mfD" secondAttribute="top" constant="10" id="C3B-Lo-dqj"/>
                                                 <constraint firstItem="bTW-8k-tA7" firstAttribute="leading" secondItem="vdp-rG-nF0" secondAttribute="trailing" constant="10" id="Fd8-ck-JNy"/>
                                                 <constraint firstAttribute="bottom" secondItem="bTW-8k-tA7" secondAttribute="bottom" constant="10" id="ITe-Hv-wVA"/>
+                                                <constraint firstAttribute="trailing" secondItem="bTW-8k-tA7" secondAttribute="trailing" constant="16" id="PiI-zq-HXp"/>
                                                 <constraint firstItem="bTW-8k-tA7" firstAttribute="top" secondItem="QiE-Ny-mfD" secondAttribute="top" constant="10" id="saO-T6-gcs"/>
-                                                <constraint firstAttribute="trailing" secondItem="cE8-3J-0sq" secondAttribute="trailing" constant="20" symbolic="YES" id="w5a-8U-q6w"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

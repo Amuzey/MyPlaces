@@ -15,8 +15,8 @@ class PlaceCell: UITableViewCell {
             placeImage.layer.cornerRadius = placeImage.frame.size.height / 2
         }
     }
+    
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var typeLabel: UILabel!
-    
 }
