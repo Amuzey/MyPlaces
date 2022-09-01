@@ -47,6 +47,17 @@ class NewPlaceTableViewController: UITableViewController {
         }
     }
     
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier != "mapKit" {
+            return
+        }
+        guard let mapVC = segue.destination as? MapViewController else { return }
+        mapVC.place = curentPlace
+        
+        
+    }
+    
     // MARK: - IBActions
     @IBAction func cancelButton(_ sender: Any) {
         dismiss(animated: true)
