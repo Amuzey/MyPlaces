@@ -14,7 +14,7 @@ class MapViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     
     // MARK: - Public properties
-    var place: Place!
+    var place = Place()
     let annotationIdentifier = "annotationIdentifier"
     
     // MARK: - Lyfe Cycles Methods

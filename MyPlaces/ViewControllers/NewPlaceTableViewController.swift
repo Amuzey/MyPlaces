@@ -12,7 +12,7 @@ class NewPlaceTableViewController: UITableViewController {
     // MARK: - IBOutlets
     @IBOutlet var placeImageView: UIImageView!
     @IBOutlet var nameTextField: UITextField!
-    @IBOutlet var locationRextField: UITextField!
+    @IBOutlet var locationTextField: UITextField!
     @IBOutlet var typeTextField: UITextField!
     @IBOutlet var saveButton: UIBarButtonItem!
     @IBOutlet var ratingControl: RatingControl!
@@ -49,11 +49,12 @@ class NewPlaceTableViewController: UITableViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier != "mapKit" {
-            return
-        }
+        if segue.identifier != "mapKit" { return }
         guard let mapVC = segue.destination as? MapViewController else { return }
-        mapVC.place = curentPlace
+        mapVC.place.name = nameTextField.text!
+        mapVC.place.location = locationTextField.text
+        mapVC.place.type = typeTextField.text
+        mapVC.place.imageData = placeImageView.image?.pngData()
         
         
     }
@@ -75,7 +76,7 @@ class NewPlaceTableViewController: UITableViewController {
             placeImageView.image = image
             placeImageView.contentMode = .scaleAspectFill
             nameTextField.text = curentPlace?.name
-            locationRextField.text = curentPlace?.location
+            locationTextField.text = curentPlace?.location
             typeTextField.text = curentPlace?.type
             ratingControl.rating = Int(curentPlace.rating)
         }
@@ -106,19 +107,12 @@ extension NewPlaceTableViewController: UITextFieldDelegate {
     
     func savePlace() {
         
-        var image: UIImage?
-        
-        if imageIsChanged {
-            image = placeImageView.image
-        } else {
-            image = #imageLiteral(resourceName: "imagePlaceholder")
-        }
-        
+        let image = imageIsChanged ? placeImageView.image : #imageLiteral(resourceName: "imagePlaceholder")
         let imageData = image?.pngData()
         
         let newPlace = Place(
             name: nameTextField.text!,
-            location: locationRextField.text,
+            location: locationTextField.text,
             type: typeTextField.text,
             imageData: imageData,
             rating: Double(ratingControl.rating)
