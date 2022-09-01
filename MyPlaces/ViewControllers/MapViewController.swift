@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapViewController: UIViewController {
     
@@ -16,10 +17,12 @@ class MapViewController: UIViewController {
     // MARK: - Public properties
     var place = Place()
     let annotationIdentifier = "annotationIdentifier"
+    let locationManager = CLLocationManager()
     
     // MARK: - Lyfe Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkLocationServices()
         mapView.delegate = self
         setupPlacemark()
     }
@@ -56,6 +59,41 @@ class MapViewController: UIViewController {
             
         }
     }
+    
+    private func checkLocationServices() {
+        if CLLocationManager.locationServicesEnabled() {
+            setupLocationManager()
+            checkLocationAutorization()
+        } else {
+            
+        }
+    }
+    
+    private func setupLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    private func checkLocationAutorization() {
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedWhenInUse:
+            mapView.showsUserLocation = true
+            break
+        case .denied:
+//            showAlertController()
+            break
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+            break
+        case .restricted:
+//            showAlertController()
+            break
+        case .authorizedAlways:
+            break
+        @unknown default:
+            print("New case is avalible")
+        }
+    }
 }
 
 // MARK: - MKMap View Delegate
@@ -80,5 +118,11 @@ extension MapViewController: MKMapViewDelegate {
         
         return annotationView
         
+    }
+}
+
+extension MapViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        checkLocationAutorization()
     }
 }
